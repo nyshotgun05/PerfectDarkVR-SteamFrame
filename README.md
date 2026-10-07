@@ -23,7 +23,7 @@ Resolution changes are undergoing additional testing following a Wine OpenXR ass
 - Per-eye render resolution presets in **Virtual Reality → Display & HUD**.
 - **Off / FXAA** anti-aliasing options. SMAA is not implemented.
 - Refresh-rate choices reported by the headset, up to **144 Hz**. The tested headset reports 72, 80, 90, 96, 108, 120, and 144 Hz; 144 Hz is experimental.
-- An actual headset refresh-rate label and a rolling five-second average game FPS display. Display Hz and rendered FPS measure different things.
+- An actual headset refresh-rate label and a rolling five-second average FPS readout in the VR Display & HUD menu, with an optional **Show FPS Counter** checkbox. Display Hz and rendered FPS measure different things.
 - A Windows setup wizard that transfers the program over SSH and adds **Perfect Dark PCVR** to Steam.
 - Updates preserve game saves, display settings, and the Proton prefix, with backups of replaced program files.
 
@@ -52,9 +52,11 @@ If shortcut registration fails, keep Steam Home open and choose **Add to Steam a
 
 ## Display and performance
 
-Open **Virtual Reality → Display & HUD** to change render resolution, anti-aliasing, refresh rate, and the FPS display.
+Open **Virtual Reality → Display & HUD** to change render resolution, anti-aliasing, refresh rate, and the FPS counter. Average FPS is readable in this menu even while the counter is Off.
 
-New installs start at **916 × 916 per eye**, anti-aliasing **Off**, a five-second average FPS display, and a 72 Hz per-game refresh preference. Existing settings take precedence during updates. Refresh preferences apply to this Steam application, rather than every VR game.
+New installs start at **916 × 916 per eye**, anti-aliasing **Off**, the FPS counter **Off**, and a 72 Hz per-game refresh preference. Existing settings take precedence during updates. Refresh preferences apply to this Steam application, rather than every VR game.
+
+**FPS display:** the counter is **Off by default**. Open **Virtual Reality → Display & HUD** to read **Average FPS**. Enable **Show FPS Counter** there only if you want the counter visible while playing. This choice is saved for your next launch.
 
 Start with the defaults. Higher scene resolution and FXAA can increase frame time. A 144 Hz display setting does not guarantee 144 rendered FPS. The current bridge reads image data back through the CPU and uploads it to D3D11; this presentation path is a performance bottleneck. During earlier menu/render tests, approximately 48–54 FPS was observed at 1080 × 1080 with AA Off. This is not a campaign benchmark or a performance guarantee.
 
@@ -78,7 +80,7 @@ See [BUILDING.md](docs/BUILDING.md) for source preparation, the Windows game bui
 
 For bug reports, include the mod version, SteamOS/SteamVR/Proton versions, render resolution, AA setting, refresh setting, steps to reproduce, and relevant portions of `vr_debug.txt`. Remove usernames, addresses, credentials, and other private information before attaching logs. Never attach ROMs or save files.
 
-Credits and license
+## Credits and license
 
 Based on [Alex-LeTux/perfect_dark_VR v1.9.5-beta](https://github.com/Alex-LeTux/perfect_dark_VR/tree/v1.9.5-beta), upstream commit prefix `f080291`, and the Perfect Dark PC port/decompilation contributors. The upstream source includes Ryan Dwyer's MIT notice.
 
